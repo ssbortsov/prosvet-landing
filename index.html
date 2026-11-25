@@ -141,8 +141,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .idea-main{grid-column:span 8;display:flex;flex-direction:column;gap:40px;padding-right:32px}
 .idea-side{grid-column:span 4;align-self:end;padding-right:32px}
 .principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);margin-top:40px;color:var(--navy)}
-.pr{height:464px;background:var(--white);border-radius:var(--r);padding:20px 24px 40px;display:flex;flex-direction:column;gap:24px}
-.pr img{width:200px;height:200px;align-self:center}
+.pr{height:532px;background:var(--white);border-radius:var(--r);padding:20px 24px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.pr-b{display:flex;flex-direction:column;gap:24px}
+.pr img{width:100%;max-width:280px;height:auto;aspect-ratio:1;align-self:center}
 
 /* 7. Финал: фон сворачивается в круг вокруг иллюстрации (макет 101:3986), внизу футер */
 .outro{position:relative;margin-top:160px}
@@ -396,7 +397,7 @@ const stats=[['7','компаний','Объединяем в экосистем
 document.getElementById('stats').innerHTML=stats.map(([v,l,d])=>`<div class="stat"><div class="head"><span class="t-number">${v}</span><span class="t-h5caps">${l}</span></div><p class="t-body">${d}</p></div>`).join('');
 
 const principles=[['01','Создавая новое, выбираем самое важное','assets/inbox-overflowing.webp'],['02','Качество знаний, которому можно доверять','assets/reading-expert.webp'],['03','Современные инструменты <br class="d">для обучения','assets/data-analyst.webp'],['04','Внимание <br class="d">к интересам <br class="d">и возможностям каждого человека','assets/dreamers.webp']];
-document.getElementById('principles').innerHTML=principles.map(([n,t,img])=>`<div class="pr"><span class="t-body">${n}</span><img src="${img}" width="200" height="200" alt=""><h3 class="t-h5">${t}</h3></div>`).join('');
+document.getElementById('principles').innerHTML=principles.map(([n,t,img])=>`<div class="pr"><span class="t-body">${n}</span><div class="pr-b"><img src="${img}" width="280" height="280" alt=""><h3 class="t-h5">${t}</h3></div></div>`).join('');
 
 // Неразрывные пробелы после коротких предлогов/союзов и перед тире
 const NB='\u00A0', short=/(^|[\s\u00A0(«"])(а|в|во|и|к|ко|о|об|с|со|у|на|не|ни|но|по|до|за|из|от|для|что|как|без|при|над|под|про|или|же)\s+/gi;
