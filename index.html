@@ -184,34 +184,41 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 @media (max-width:767px){
   br.d{display:none}
   .fin-in{padding-top:calc(var(--hdr) + 48px)}
-  :root{--m:20px}
+  :root{--m:12px}
   .hdr nav{display:none}
   :root{--strip:148px}
   .hero-ill{width:clamp(130px,22vh,180px)}
-  .reveal{--x:20px}
+  .reveal{--x:12px}
   .strip{padding:16px 20px 20px}
   .strip .t-h5{font-size:20px;line-height:24px}
   .hist{grid-template-columns:1fr;padding:56px var(--m)}
   .hist .ill-1930,.hist .ill-2026,.era{grid-column:1;grid-row:auto}
   .cmp-pin{position:static;height:auto;min-height:0;padding:96px 0}
-  .cmp-track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;scrollbar-width:none}
+  .cmp-track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);transform:none!important;scrollbar-width:none}
+  .cmp-title{scroll-snap-align:start}
   .cmp-title{flex-basis:300px;height:480px}
   .card,.slot{flex-basis:300px;height:480px;scroll-snap-align:start}
   .slot .slot-t{font-size:32px;line-height:36px}
-  .pcard{top:72px;flex-direction:column;padding:28px;min-height:0}
+  .pcard{top:72px;flex-direction:column;padding:24px 20px;gap:24px;min-height:0}
+  .pcard h3.t-tile{font-size:24px;line-height:24px}
+  .p-text{gap:24px;justify-content:flex-start}
+  .pcard .t-body-s{font-size:14px;line-height:20px}
   .p-vis{flex:none;flex-direction:row;align-items:flex-start;order:-1}
   .p-vis img{width:160px;height:140px}
   .t-h5,.t-h5caps{font-size:24px;line-height:28px}
-  .t-display{font-size:36px;line-height:38px}
-  .t-tile{font-size:26px;line-height:26px;hyphens:auto}
+  .t-display{font-size:36px;line-height:40px}
+  .t-tile{font-size:28px;line-height:28px;hyphens:auto}
+  .t-lead{font-size:24px;line-height:32px}
   .t-number{font-size:48px}
-  .t-body{font-size:17px;line-height:25px}
+  .t-body{font-size:16px;line-height:24px}
+  .idea-main{gap:24px}
+  .idea-row{row-gap:24px}
   .numbers,.idea{margin-top:96px}
   .stats,.principles{grid-template-columns:1fr}
-  .stat{height:220px}
-  .pr{height:auto}
+  .stat{height:248px}
+  .pr{height:474px}
   .outro{margin-top:96px}
-  .foot{flex-wrap:wrap;gap:10px 16px;font-size:15px;padding-inline:12px}
+  .foot{flex-wrap:wrap;gap:12px 16px;padding-inline:12px}
   .foot .logo-link{order:-1;flex-basis:100%;display:flex;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
@@ -574,7 +581,7 @@ const onScroll=()=>{
   // Плашка: от полей сетки и скругления 40 → во всю ширину без скругления сверху
   const strip=parseFloat(getComputedStyle(hist).getPropertyValue('--strip'))||116;
   const span=Math.max(1,innerHeight-strip);
-  const k=reduce.matches?0:clamp((span-h.top)/(span*.4),0,1);
+  const k=reduce.matches?1:clamp((span-h.top)/(span*.4),0,1);
   const m=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--m'))||40;
   hist.style.setProperty('--x',(m*(1-k)).toFixed(1)+'px');
   hist.style.setProperty('--rt',(40*(1-k)).toFixed(1)+'px');
