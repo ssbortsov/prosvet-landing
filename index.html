@@ -89,7 +89,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .hero-in{position:relative;z-index:1;max-width:1440px;height:100%;margin:0 auto;padding:calc(var(--hdr) - 16px + clamp(24px,9vh,96px)) var(--m) 0}
 .hero h1{max-width:936px}
 .hero .lead{max-width:557px;margin-top:20px}
-.hero-ill{position:absolute;right:var(--m);bottom:calc(var(--strip) + 24px);width:clamp(180px,32vh,280px)}
+.hero-ill{position:absolute;right:var(--m);bottom:calc(var(--strip) + 24px);width:clamp(216px,38.4vh,336px)}
 /* Второй экран выезжает поверх первого: белая плашка расширяется до краёв */
 .reveal{position:relative;z-index:1;margin-top:calc(-1 * var(--strip));--x:40px;--rt:40px}
 .reveal-bg{position:absolute;inset:0;background:var(--white);clip-path:inset(0 var(--x) 0 var(--x) round var(--rt) var(--rt) 40px 40px);will-change:clip-path}
@@ -159,10 +159,11 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 /* 6. Идея */
 .idea{margin-top:160px;color:var(--white)}
 .idea-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g)}
-.idea-main{grid-column:span 8;display:flex;flex-direction:column;gap:40px;padding-right:32px}
-.idea-side{grid-column:span 4;align-self:end;padding-right:0}
-.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);margin-top:40px;color:var(--navy)}
-.pr{height:520px;background:var(--white);border-radius:var(--r);padding:20px 24px 40px;display:flex;flex-direction:column;justify-content:flex-start;gap:0}
+.idea-h{margin-bottom:40px}
+.idea-c{grid-column:span 6}
+.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);margin-top:60px;color:var(--navy)}
+.idea.stack .principles{margin-top:40px}
+.pr{height:520px;background:var(--white);border-radius:var(--r);padding:24px 24px 40px;display:flex;flex-direction:column;justify-content:flex-start;gap:0}
 .pr-b{display:flex;flex-direction:column;gap:24px}
 .pr img{width:100%;max-width:280px;height:auto;aspect-ratio:1;align-self:center}
 /* Принципы: карточки по одной выезжают снизу и встают в ряд 1-2-3-4, тексты блока остаются на экране */
@@ -198,7 +199,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 @media (max-width:1100px){
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .idea-main,.idea-side{grid-column:1/-1;padding-right:0}
+  .idea-c{grid-column:1/-1}
   .pcard{height:auto;min-height:560px;padding:40px}
 }
 @media (max-width:767px){
@@ -218,7 +219,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .burger{display:block}
   .hdr-r{gap:16px}
   :root{--strip:148px}
-  .hero-ill{width:clamp(130px,22vh,180px);right:-28px}
+  .hero-ill{width:clamp(156px,26.4vh,216px);right:-34px}
   .reveal{--x:12px}
   .strip{padding:16px 20px 20px}
   .strip .t-h5{font-size:20px;line-height:24px}
@@ -249,7 +250,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .t-lead{font-size:24px;line-height:28px;letter-spacing:-.02em}
   .t-number{font-size:48px}
   .t-body{font-size:16px;line-height:22px;letter-spacing:-.01em}
-  .idea-main{gap:24px}
+  .idea-h{margin-bottom:24px}
+  .idea-c1{font-size:24px;line-height:28px;letter-spacing:-.02em;font-weight:500}
   .idea-row{row-gap:24px}
   .numbers,.idea{margin-top:96px}
   .stats,.principles{grid-template-columns:1fr}
@@ -329,7 +331,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="hero-in">
     <h1 class="t-display">У любопытства<br>нет возраста</h1>
     <p class="t-body lead">Объединяем знания и технологии,<br>чтобы каждый мог учиться, развиваться <br class="d">и открывать новое. С 1930 года</p>
-    <img class="hero-ill" id="heroIll" src="assets/looking-around.webp?v=16fb2a1e" width="280" height="280" alt="">
+    <img class="hero-ill" id="heroIll" src="assets/looking-around.webp?v=c92ee709" width="280" height="280" alt="">
   </div>
   <button class="scroll-cue" type="button" id="scrollCue" aria-label="Прокрутить вниз">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 11L14 19L23 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -394,12 +396,10 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <!-- 6. Идея бренда -->
 <section class="idea" id="idea">
  <div class="idea-stage wrap" id="ideaStage">
+  <h2 class="t-tile idea-h">Ясный путь развития — <br>главная идея «Просвета»</h2>
   <div class="idea-row">
-    <div class="idea-main">
-      <h2 class="t-tile">Ясный путь развития — <br>главная идея «Просвета»</h2>
-      <p class="t-lead">Мы хотим, чтобы человек <br class="m">в любом возрасте мог найти свой путь в образовании: развивать способности, осваивать новое и заниматься тем, что ему действительно интересно.</p>
-    </div>
-    <p class="t-body idea-side">Образование нужно не только для того, <br class="m">чтобы выбрать профессию и расти в работе. Оно делает человека самостоятельнее, даёт уверенность в своих силах и свободу планировать будущее.</p>
+    <p class="t-body idea-c idea-c1">Мы хотим, чтобы у людей любого возраста было больше возможностей находить свой путь в образовании, развивать способности, осваивать новые направления и заниматься тем, что им действительно интересно.</p>
+    <p class="t-body idea-c">Ведь образование помогает не только выбирать профессию и развиваться в работе. Оно даёт больше самостоятельности, уверенности в собственных возможностях и свободы строить планы на будущее.</p>
   </div>
   <div class="principles" id="principles"></div>
  </div>
