@@ -124,7 +124,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .chip.partner{background:none;border:1px dashed var(--navy);opacity:.6}
 .p-vis{flex:0 0 280px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .p-vis .num{color:var(--blue)}
-.p-vis img{width:255px;height:200px;object-fit:contain}
+.p-vis img{width:280px;height:280px;object-fit:contain}
 
 /* 5. Цифры */
 .numbers{margin-top:160px}
@@ -395,7 +395,7 @@ document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])
     <div class="p-bot"><div class="p-desc">${ps.map(p=>`<p class="t-body-s">${p}</p>`).join('')}</div>
       <div class="chips">${tags.map(([c,p])=>`<span class="chip t-tag${p?' partner':''}">${c}</span>`).join('')}</div></div>
   </div>
-  <div class="p-vis"><span class="t-tile num">${n}</span><img src="${img}" width="255" height="200" alt=""></div>
+  <div class="p-vis"><span class="t-tile num">${n}</span><img src="${img}" width="280" height="280" alt=""></div>
 </article>`).join('');
 
 const stats=[['7','компаний','Объединяем в экосистеме «Просвет»'],['96','лет опыта','Создаём учебные материалы и методики'],['25 000 000','детей и взрослых','Используют наши материалы и сервисы'],['44 000','образовательных организаций','Работают с нами в сфере образования'],['3500','экспертов','Создают учебные материалы']];
