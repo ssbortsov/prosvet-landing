@@ -55,6 +55,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .intro{position:relative}
 /* Фирменный градиент первого экрана — фиксированный фон всего сайта */
 .page-bg{position:fixed;inset:0;z-index:-1;background:var(--blue) url(assets/hero-glow.webp) right top/cover no-repeat;pointer-events:none}
+/* второй градиент — подменяется, пока экран целиком закрыт белой подложкой истории */
+.page-bg.alt{background-image:url(assets/hero-glow-2.webp);opacity:0}
+.page-bg.alt.on{opacity:1}
 .hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;color:var(--hero-ink,var(--navy));overflow:hidden;--cx:82%;--cy:56%;--r0:0px;--r1:0.1px}
 /* Старт: белый экран, градиент виден только «светом фонаря»; при скролле круг растёт до краёв */
 .hero-veil{position:absolute;inset:0;background:var(--white);-webkit-mask-image:radial-gradient(circle at var(--cx) var(--cy),transparent var(--r0),#000 var(--r1));mask-image:radial-gradient(circle at var(--cx) var(--cy),transparent var(--r0),#000 var(--r1))}
@@ -97,7 +100,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .cmp{position:relative}
 .cmp-pin{position:sticky;top:0;height:100vh;min-height:720px;display:flex;align-items:center;overflow:hidden}
 .cmp-track{display:flex;gap:var(--g);padding:0 var(--m);will-change:transform}
-.cmp-title{flex:0 0 575px;height:560px;display:flex;flex-direction:column;justify-content:space-between;padding:32px 32px 32px 0;color:var(--white)}
+.cmp-title{flex:0 0 575px;height:560px;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;padding:32px 32px 32px 0;color:var(--white)}
 .card{flex:0 0 385px;height:560px;border-radius:var(--r);background:var(--white);padding:32px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .card .top{align-self:stretch;display:flex;flex-direction:column;gap:20px}
 .card .go,.slot .go{width:48px;height:48px;border:1.5px solid currentColor;border-radius:16px;display:grid;place-items:center;font-size:20px;line-height:1;transition:background .2s,color .2s}
@@ -220,6 +223,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 </head>
 <body>
 <div class="page-bg" aria-hidden="true"></div>
+<div class="page-bg alt" id="bgAlt" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 257 40"><g fill="currentColor"><g ><path d="M0 0.82H29.31V29.52H22.46V6.40H6.86V29.52H0.01L0 0.82Z"/><path d="M223.82 15.23V17.04H196.43C196.69 19.95 197.63 21.99 199.25 23.13C200.87 24.28 203.55 24.85 207.31 24.85C213.09 24.85 216.28 23.52 216.86 20.86H223.32C222.99 23.96 221.44 26.31 218.68 27.92C215.92 29.52 212.10 30.32 207.20 30.32C201.24 30.32 196.86 29.08 194.06 26.61C191.26 24.13 189.86 20.27 189.85 15.03C189.85 9.86 191.22 6.06 193.96 3.64C196.70 1.21 201.04 0.00 206.97 0.00C212.89 0.00 217.18 1.18 219.83 3.55C222.48 5.92 223.81 9.82 223.82 15.23ZM196.54 11.84H216.86C216.72 9.59 215.87 7.97 214.32 6.98C212.77 6.00 210.33 5.50 206.98 5.50C203.63 5.50 201.15 5.99 199.53 6.95C197.92 7.92 196.92 9.56 196.54 11.86V11.84Z"/><path d="M245.41 29.52H238.56V6.40H227.68V0.82H256.39V6.39H245.42L245.41 29.52Z"/><path d="M122.55 7.79C124.18 6.35 126.99 5.63 130.96 5.63C134.94 5.63 137.71 6.35 139.27 7.79C140.24 8.72 140.92 9.91 141.21 11.21H148.20C147.64 7.99 146.33 5.48 144.28 3.69C141.45 1.23 137.01 0.00 130.96 0.00C124.82 0.00 120.33 1.21 117.49 3.64C116.39 4.58 115.50 5.74 114.86 7.04L120.11 14.42C120.22 11.34 121.03 9.13 122.55 7.79ZM141.35 18.58C140.98 20.33 140.28 21.68 139.25 22.63C137.67 24.05 134.91 24.76 130.97 24.76C127.03 24.76 124.22 24.05 122.53 22.63C122.09 22.22 121.71 21.75 121.41 21.23L110.14 5.34C109.69 4.73 109.18 4.18 108.61 3.69C105.78 1.23 101.33 0 95.29 0C89.14 0 84.65 1.21 81.82 3.63C78.99 6.06 77.57 9.89 77.57 15.14C77.57 20.38 78.97 24.23 81.79 26.67C84.61 29.12 89.11 30.34 95.29 30.34C101.32 30.34 105.76 29.11 108.61 26.67C109.69 25.74 110.57 24.60 111.21 23.33L106.00 15.95C105.88 19.02 105.09 21.26 103.60 22.63C102.01 24.05 99.25 24.76 95.31 24.76C91.33 24.76 88.52 24.05 86.86 22.63C85.25 21.14 84.44 18.64 84.43 15.14C84.43 11.64 85.25 9.19 86.89 7.790C88.53 6.35 91.34 5.63 95.31 5.63C99.29 5.63 102.06 6.35 103.62 7.79C104.03 8.22 104.41 8.68 104.74 9.16L115.93 25H115.95C116.40 25.60 116.91 26.16 117.48 26.66C120.30 29.10 124.80 30.32 130.98 30.32C137.02 30.32 141.46 29.10 144.31 26.66C146.48 24.78 147.82 22.09 148.32 18.56L141.35 18.58Z"/><path d="M185.15 21.24C185.15 17.71 183.19 15.45 179.27 14.43C181.07 13.73 182.33 12.90 183.04 11.95C183.76 11.00 184.12 9.71 184.12 8.10C184.12 4.97 182.50 2.84 179.27 1.71C177.52 1.12 175.29 0.82 172.58 0.82H154.59V29.52H172.59C180.98 29.52 185.17 26.81 185.18 21.38C185.15 21.33 185.15 21.28 185.15 21.24ZM161.36 6.28H171.91C173.75 6.28 175.08 6.52 175.91 6.97C176.31 7.18 176.63 7.50 176.85 7.89C177.07 8.29 177.18 8.73 177.15 9.18C177.15 10.24 176.78 10.98 176.05 11.40C175.31 11.82 174.06 12.02 172.29 12.02H161.36V6.28ZM176.79 23.26C175.89 23.78 174.41 24.04 172.35 24.04H161.38V17.22H172.42C174.44 17.22 175.91 17.50 176.81 18.070C177.71 18.63 178.16 19.55 178.16 20.81C178.19 21.31 178.08 21.80 177.83 22.23C177.59 22.66 177.23 23.02 176.80 23.26H176.79Z"/><path d="M68.18 3.69C65.34 1.23 60.90 0.00 54.86 0.00C50.32 0.00 46.68 0.66 43.95 1.99V0.81H37.10V40H43.95V28.38C46.67 29.71 50.31 30.37 54.86 30.37C60.90 30.37 65.34 29.15 68.18 26.70C71.02 24.26 72.44 20.41 72.44 15.16C72.44 9.98 71.02 6.16 68.18 3.69ZM63.29 22.58C61.72 24.07 59.08 24.82 55.37 24.81C51.66 24.81 48.78 24.05 46.75 22.52C44.72 20.99 43.71 18.84 43.71 16.07V13.99C43.71 8.38 47.68 5.57 55.63 5.57C59.28 5.57 61.86 6.29 63.37 7.71C64.88 9.13 65.63 11.59 65.63 15.09C65.63 18.58 64.85 21.08 63.29 22.58Z"/></g></g></symbol><symbol id="logo-desc" viewBox="0 0 87 18"><g fill="currentColor">
 <path d="M4.6 0.0V5.9H3.7V0.7H1.0V5.9H0.1V0.0H4.6Z"/>
 <path d="M5.9 7.5V1.4H6.8V2.2H6.8C6.9 2.1 7.0 2.0 7.0 1.8C7.1 1.7 7.3 1.6 7.4 1.5C7.6 1.4 7.8 1.4 8.1 1.4C8.5 1.4 8.8 1.5 9.1 1.7C9.3 1.8 9.6 2.1 9.7 2.4C9.9 2.8 10.0 3.2 10.0 3.7C10.0 4.1 9.9 4.6 9.7 4.9C9.6 5.2 9.3 5.5 9.1 5.7C8.8 5.9 8.5 6.0 8.1 6.0C7.8 6.0 7.6 5.9 7.4 5.8C7.3 5.7 7.1 5.6 7.1 5.5C7.0 5.4 6.9 5.3 6.8 5.2H6.8V7.5H5.9ZM6.8 3.7C6.8 4.0 6.8 4.2 6.9 4.5C7.0 4.7 7.1 4.9 7.3 5.0C7.5 5.2 7.7 5.2 7.9 5.2C8.2 5.2 8.4 5.2 8.6 5.0C8.7 4.9 8.9 4.7 9.0 4.5C9.0 4.2 9.1 4.0 9.1 3.7C9.1 3.4 9.0 3.1 9.0 2.9C8.9 2.6 8.7 2.5 8.6 2.3C8.4 2.2 8.2 2.1 7.9 2.1C7.7 2.1 7.5 2.2 7.3 2.3C7.1 2.4 7.0 2.6 6.9 2.9C6.8 3.1 6.8 3.4 6.8 3.7Z"/>
@@ -550,6 +554,7 @@ const ideaScroll=()=>{
     c.style.opacity=k>0?1:0;
   });
 };
+const bgAlt=document.getElementById('bgAlt');
 const onScroll=()=>{
   ideaScroll();
   const q=heroScroll();
@@ -559,6 +564,9 @@ const onScroll=()=>{
   const h=hist.getBoundingClientRect();
   const overHist=h.top<28&&h.bottom>28;
   hdr.classList.toggle('on-light',overHist);
+  // Смена фонового градиента: только когда белая подложка истории закрывает весь экран
+  if(h.top<=0&&h.bottom>=innerHeight) bgAlt.classList.add('on');
+  else if(h.top>0) bgAlt.classList.remove('on');
   // на финальном экране шапку заменяет футер
   const ho=fs.active?1-clamp((fs.t-.5)/.3,0,1):1;
   hdr.style.setProperty('--hdr-op',ho.toFixed(3)); hdr.classList.toggle('gone',ho<.05);
