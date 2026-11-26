@@ -88,6 +88,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .hist .ill-1930{left:21px;top:224px;width:297px}
 .hist .ill-2026{left:814px;top:497px;width:298px}
 .hist .curve{left:222px;top:374px;width:593px;height:459px}
+.hist .curve-m{display:none}
 .hist .dot{width:12px;height:12px;border-radius:50%;background:var(--blue)}
 .hist .dot-1{left:191px;top:563px}.hist .dot-2{left:793px;top:863px}
 .era{width:557px;display:flex;flex-direction:column;gap:20px}
@@ -191,35 +192,44 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .reveal{--x:12px}
   .strip{padding:16px 20px 20px}
   .strip .t-h5{font-size:20px;line-height:24px}
-  .hist{grid-template-columns:1fr;padding:56px var(--m)}
-  .hist .ill-1930,.hist .ill-2026,.era{grid-column:1;grid-row:auto}
+  .hist{display:block;padding:56px var(--m)}
+  .hist>*,.hist h2,.hist .sum,.hist .ill-1930,.hist .ill-2026,.hist .era-1930,.hist .era-2026{position:relative;left:auto;top:auto}
+  .hist h2{margin-bottom:40px}.hist .sum{margin-bottom:28px}
+  .hist .ill-1930,.hist .ill-2026{display:block;width:200px;height:200px;z-index:1}
+  .hist .ill-1930{margin-bottom:12px}
+  .era{width:285px;max-width:100%;gap:12px}.era h3{margin-bottom:0}
+  .hist .curve-m{display:block;width:251px;height:496px;margin:21px 0 0 32px}
+  .hist .ill-2026{margin:-161px 0 0 70px}
+  .era-2026{margin:12px 0 0 70px;width:285px;max-width:calc(100% - 70px)}
   .cmp-pin{position:static;height:auto;min-height:0;padding:96px 0}
   .cmp-track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);transform:none!important;scrollbar-width:none}
   .cmp-title{scroll-snap-align:start}
-  .cmp-title{flex-basis:300px;height:480px}
+  .cmp-title{flex-basis:300px;height:480px;padding-right:0}
   .card,.slot{flex-basis:300px;height:480px;scroll-snap-align:start}
   .slot .slot-t{font-size:32px;line-height:36px}
   .pcard{top:72px;flex-direction:column;padding:24px 20px;gap:24px;min-height:0}
-  .pcard h3.t-tile{font-size:24px;line-height:24px}
+  .p-top{gap:12px}.p-bot{gap:20px}
   .p-text{gap:24px;justify-content:flex-start}
   .pcard .t-body-s{font-size:14px;line-height:20px}
   .p-vis{flex:none;flex-direction:row;align-items:flex-start;order:-1}
   .p-vis img{width:160px;height:140px}
   .t-h5,.t-h5caps{font-size:24px;line-height:28px}
   .t-display{font-size:36px;line-height:40px}
-  .t-tile{font-size:28px;line-height:28px;hyphens:auto}
-  .t-lead{font-size:24px;line-height:32px}
+  .t-tile{font-size:32px;line-height:36px;letter-spacing:-.02em;hyphens:auto}
+  .t-lead{font-size:24px;line-height:28px;letter-spacing:-.02em}
   .t-number{font-size:48px}
-  .t-body{font-size:16px;line-height:24px}
+  .t-body{font-size:16px;line-height:22px;letter-spacing:-.01em}
   .idea-main{gap:24px}
   .idea-row{row-gap:24px}
   .numbers,.idea{margin-top:96px}
   .stats,.principles{grid-template-columns:1fr}
-  .stat{height:248px}
-  .pr{height:474px}
+  .stat{height:248px;padding:40px 24px 24px}
+  .pr{height:474px;padding:24px 24px 40px}
   .outro{margin-top:96px}
   .foot{flex-wrap:wrap;gap:12px 16px;padding-inline:12px}
   .foot .logo-link{order:-1;flex-basis:100%;display:flex;justify-content:center}
+  .foot a:not(.logo-link){display:none}
+  .foot{padding-block:16px;margin-bottom:12px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -307,6 +317,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
       <p class="t-body">История «Просвета» начинается с издательства «Просвещение», которое создаёт учебники, образовательные программы и методические материалы.</p>
       <p class="t-body">Почти век на учебниках «Просвещения» учатся миллионы школьников по всей стране.</p>
     </div>
+    <svg class="curve-m" viewBox="0 0 255 497" width="255" height="497" fill="none" aria-hidden="true"><path id="curvePathM" d="M50.61 .35C68.61 74.35 17.94 74.2 32.11 124.85C59.11 221.35 221.61 199.91 248.11 176.35C261.61 164.35 243.61 147.85 214.61 164.35C175.87 186.4-76.39 293.85 25.61 495.85" stroke="#29C2FF" stroke-width="3"/></svg>
     <img class="ill-2026" src="assets/friday-feeling.webp" width="298" height="298" alt="">
     <div class="era era-2026 fade" data-at="1">
       <h3 class="t-tile">2026</h3>
@@ -501,18 +512,18 @@ const heroScroll=()=>{
   hero.style.setProperty('--hero-ink',mix(q));
   return q;
 };
-const curve=document.getElementById('curvePath'),curveLen=curve.getTotalLength();
-curve.style.strokeDasharray=curveLen; curve.style.strokeDashoffset=curveLen;
+const curves=[document.getElementById('curvePath'),document.getElementById('curvePathM')];
+curves.forEach(c=>{const L=c.getTotalLength();c.dataset.len=L;c.style.strokeDasharray=L;c.style.strokeDashoffset=L});
 const fades=[...document.querySelectorAll('.fade')];
 let curveP=0;
 const io=new IntersectionObserver(es=>{for(const e of es) if(e.isIntersecting&&!e.target.dataset.at){e.target.classList.add('in');io.unobserve(e.target)}},{rootMargin:'0px 0px -15% 0px'});
 fades.forEach(f=>io.observe(f));
 const curveScroll=()=>{
-  const svg=curve.ownerSVGElement;
-  if(getComputedStyle(svg).display==='none'||reduce.matches){curve.style.strokeDashoffset=0;fades.forEach(f=>f.classList.add('in'));return}
-  const r=svg.getBoundingClientRect();
+  const curve=curves.find(c=>getComputedStyle(c.ownerSVGElement).display!=='none');
+  if(!curve||reduce.matches){curves.forEach(c=>c.style.strokeDashoffset=0);fades.forEach(f=>f.classList.add('in'));return}
+  const r=curve.ownerSVGElement.getBoundingClientRect();
   curveP=clamp((innerHeight*.7-r.top)/r.height,0,1);
-  curve.style.strokeDashoffset=(curveLen*(1-curveP)).toFixed(1);
+  curve.style.strokeDashoffset=(curve.dataset.len*(1-curveP)).toFixed(1);
   // точка и текст 2026 проявляются, когда линия дошла до конца
   if(curveP>.95) fades.filter(f=>f.dataset.at).forEach(f=>f.classList.add('in'));
 };
