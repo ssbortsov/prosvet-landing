@@ -20,6 +20,7 @@ body{margin:0;background:var(--blue);color:var(--navy);font:400 20px/28px Inter,
 h1,h2,h3,p{margin:0}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
+br.m{display:none}
 .wrap{max-width:1440px;margin:0 auto;padding:0 var(--m)}
 
 /* Типографика */
@@ -69,7 +70,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .scroll-cue:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .hero-in{position:relative;z-index:1;max-width:1440px;height:100%;margin:0 auto;padding:calc(var(--hdr) - 16px + clamp(24px,9vh,96px)) var(--m) 0}
 .hero h1{max-width:936px}
-.hero .lead{max-width:557px;margin-top:24px}
+.hero .lead{max-width:557px;margin-top:20px}
 .hero-ill{position:absolute;right:var(--m);bottom:calc(var(--strip) + 24px);width:clamp(180px,32vh,280px)}
 /* Второй экран выезжает поверх первого: белая плашка расширяется до краёв */
 .reveal{position:relative;z-index:1;margin-top:calc(-1 * var(--strip));--x:40px;--rt:40px}
@@ -184,11 +185,18 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 }
 @media (max-width:767px){
   br.d{display:none}
+  br.m{display:inline}
+  .pcard h3.t-tile{font-size:28px;line-height:36px;hyphens:manual}
+  .p-vis .num{font-size:28px;line-height:36px}
+  .stats{margin-top:48px}
+  .principles{margin-top:24px}
+  .fin-ill{width:260px}
+  .pr img{align-self:flex-start}
   .fin-in{padding-top:calc(var(--hdr) + 48px)}
   :root{--m:12px}
   .hdr nav{display:none}
   :root{--strip:148px}
-  .hero-ill{width:clamp(130px,22vh,180px)}
+  .hero-ill{width:clamp(130px,22vh,180px);right:-28px}
   .reveal{--x:12px}
   .strip{padding:16px 20px 20px}
   .strip .t-h5{font-size:20px;line-height:24px}
@@ -356,10 +364,10 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
  <div class="idea-stage wrap" id="ideaStage">
   <div class="idea-row">
     <div class="idea-main">
-      <h2 class="t-tile">Ясный путь развития — <br class="d">главная идея «Просвета»</h2>
-      <p class="t-lead">Мы хотим, чтобы человек в любом возрасте мог найти свой путь в образовании: развивать способности, осваивать новое и заниматься тем, что ему действительно интересно.</p>
+      <h2 class="t-tile">Ясный путь развития — <br>главная идея «Просвета»</h2>
+      <p class="t-lead">Мы хотим, чтобы человек <br class="m">в любом возрасте мог найти свой путь в образовании: развивать способности, осваивать новое и заниматься тем, что ему действительно интересно.</p>
     </div>
-    <p class="t-body idea-side">Образование нужно не только для того, чтобы выбрать профессию и расти в работе. Оно делает человека самостоятельнее, даёт уверенность в своих силах и свободу планировать будущее.</p>
+    <p class="t-body idea-side">Образование нужно не только для того, <br class="m">чтобы выбрать профессию и расти в работе. Оно делает человека самостоятельнее, даёт уверенность в своих силах и свободу планировать будущее.</p>
   </div>
   <div class="principles" id="principles"></div>
  </div>
@@ -405,7 +413,7 @@ const projects=[
  ['01','Программа<br><span class="keep">«УРАЛХИМиЯ»</span>','Помогаем школьникам подготовиться<br>к экзаменам и выбрать профессию',
   ['Академия «Просвещение» и «99 баллов» вместе с крупным мировым производителем удобрений ГК «Уралхим», готовят школьников к ОГЭ и ЕГЭ по физике, химии, математике и русскому языку.','Школьникам, которые успешно прошли программу, проще поступить в профильные вузы, а в дальнейшем — устроиться на предприятия «Уралхима».'],
   [['Академия «Просвещение»'],['«99 баллов»'],['Уралхим · партнёр',1]],'assets/moving-day.webp'],
- ['02','Агротехнологические классы в школах','Знакомим учеников с современными агротехнологиями',
+ ['02','Агро&shy;технологические классы в школах','Знакомим учеников с современными агротехнологиями',
   ['Разрабатываем учебники и методики, поставляем оборудование для занятий: лабораторные комплекты, гидропонные установки, <br class="d">умные теплицы и робототехнику.','Ученики изучают сельское хозяйство на практике — проводят опыты, знакомятся с оборудованием и получают первые навыки, которые пригодятся в будущей профессии.'],
   [['Издательство «Просвещение»'],['«Просвещение-Регион»']],'assets/planting.webp'],
  ['03','Пространства для творчества и развития','Помогаем оборудовать учреждения культуры всем необходимым',
@@ -423,7 +431,7 @@ document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])
 const stats=[['7','компаний','Объединяем в экосистеме «Просвет»'],['96','лет опыта','Создаём учебные материалы и методики'],['25 000 000','детей и взрослых','Используют наши материалы и сервисы'],['44 000','образовательных организаций','Работают с нами в сфере образования'],['3500','экспертов','Создают учебные материалы']];
 document.getElementById('stats').innerHTML=stats.map(([v,l,d])=>`<div class="stat"><div class="head"><span class="t-number">${v}</span><span class="t-h5caps">${l}</span></div><p class="t-body">${d}</p></div>`).join('');
 
-const principles=[['01','Создавая новое, выбираем самое важное','assets/inbox-overflowing.webp'],['02','Качество знаний, которому можно доверять','assets/reading-expert.webp'],['03','Современные инструменты <br class="d">для обучения','assets/data-analyst.webp'],['04','Внимание <br class="d">к интересам <br class="d">и возможностям каждого человека','assets/dreamers.webp']];
+const principles=[['01','Создавая новое, выбираем самое <br class="m">важное','assets/inbox-overflowing.webp'],['02','Качество знаний, которому можно <br class="m">доверять','assets/reading-expert.webp'],['03','Современные инструменты <br>для обучения','assets/data-analyst.webp'],['04','Внимание <br class="d">к интересам <br>и возможностям каждого человека','assets/dreamers.webp']];
 document.getElementById('principles').innerHTML=principles.map(([n,t,img])=>`<div class="pr"><span class="t-body">${n}</span><div class="pr-b"><img src="${img}" width="280" height="280" alt=""><h3 class="t-h5">${t}</h3></div></div>`).join('');
 
 // Неразрывные пробелы после коротких предлогов/союзов и перед тире
