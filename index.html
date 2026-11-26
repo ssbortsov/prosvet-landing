@@ -15,7 +15,7 @@
 :root{color-scheme:light;--strip:116px;--navy:#000126;--blue:#29c2ff;--light:#d7f3ff;--gray:#808792;--paper:#f4f5f6;--white:#fff;--m:40px;--g:16px;--r:24px;--hdr:72px}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px;overscroll-behavior-y:none;background:var(--blue)}
-html.at-end,html.at-end body{background:var(--white)}
+html.bottom-white,html.bottom-white body{background:var(--white)}
 html.lenis,html.lenis body{height:auto}html.lenis{scroll-behavior:auto}.lenis.lenis-stopped{overflow:clip}
 body{margin:0;overscroll-behavior-y:none;background:var(--blue);color:var(--navy);font:400 20px/28px Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 h1,h2,h3,p{margin:0}
@@ -73,9 +73,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 /* 1. Первый экран */
 .intro{position:relative}
 /* Фирменный градиент первого экрана — фиксированный фон всего сайта */
-.page-bg{position:fixed;inset:0;z-index:-1;background:var(--blue) url(assets/hero-glow.webp) right top/cover no-repeat;pointer-events:none}
+.page-bg{position:fixed;inset:0;z-index:-1;background:var(--blue) url(assets/hero-glow.webp?v=615c5a0d) right top/cover no-repeat;pointer-events:none}
 /* второй градиент — подменяется, пока экран целиком закрыт белой подложкой истории */
-.page-bg.alt{background-image:url(assets/hero-glow-2.webp);opacity:0}
+.page-bg.alt{background-image:url(assets/hero-glow-2.webp?v=0f7fb7e1);opacity:0}
 .page-bg.alt.on{opacity:1}
 .hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;color:var(--hero-ink,var(--navy));overflow:hidden;--cx:82%;--cy:56%;--r0:0px;--r1:0.1px}
 /* Старт: белый экран, градиент виден только «светом фонаря»; при скролле круг растёт до краёв */
@@ -203,8 +203,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 }
 @media (max-width:767px){
   br.d{display:none}
-  .page-bg{background-image:url(assets/hero-glow-m.webp);background-position:center top}
-  .page-bg.alt{background-image:url(assets/hero-glow-2-m.webp)}
+  .page-bg{background-image:url(assets/hero-glow-m.webp?v=d0eadeb1);background-position:center top}
+  .page-bg.alt{background-image:url(assets/hero-glow-2-m.webp?v=de1788aa)}
   br.m{display:inline}
   .pcard h3.t-tile{font-size:28px;line-height:36px;hyphens:manual}
   .p-vis .num{font-size:28px;line-height:36px}
@@ -329,7 +329,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="hero-in">
     <h1 class="t-display">У любопытства<br>нет возраста</h1>
     <p class="t-body lead">Объединяем знания и технологии,<br>чтобы каждый мог учиться, развиваться <br class="d">и открывать новое. С 1930 года</p>
-    <img class="hero-ill" id="heroIll" src="assets/looking-around.webp" width="280" height="280" alt="">
+    <img class="hero-ill" id="heroIll" src="assets/looking-around.webp?v=16fb2a1e" width="280" height="280" alt="">
   </div>
   <button class="scroll-cue" type="button" id="scrollCue" aria-label="Прокрутить вниз">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 11L14 19L23 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -349,7 +349,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="hist">
     <h2 class="t-tile">Большая история. Новая глава</h2>
     <p class="t-body sum">В основе новой экосистемы — опыт «Просвещения» <br class="d">в создании учебных материалов и методик, дополненный технологиями и разработками других образовательных <br class="d">компаний.</p>
-    <img class="ill-1930" src="assets/library.webp" width="297" height="297" alt="">
+    <img class="ill-1930" src="assets/library.webp?v=61b0e81e" width="297" height="297" alt="">
     <svg class="curve" viewBox="0 0 593 459" width="593" height="459" fill="none" aria-hidden="true"><path id="curvePath" d="M1.14 170.15C189.14 -52.34 389.64 -8.84 474.14 44.65C553.94 95.17 557.64 192.15 457.14 205.65C371.42 217.16 394.64 139.65 457.14 158.15C599.38 200.25 599.31 360.15 584.14 458.65" stroke="#29C2FF" stroke-width="3"/></svg>
     <span class="dot dot-1 fade"></span><span class="dot dot-2 fade" data-at="1"></span>
     <div class="era era-1930 fade">
@@ -358,7 +358,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
       <p class="t-body">Почти век на учебниках «Просвещения» учатся миллионы школьников по всей стране.</p>
     </div>
     <svg class="curve-m" viewBox="0 0 255 497" width="255" height="497" fill="none" aria-hidden="true"><path id="curvePathM" d="M50.61 .35C68.61 74.35 17.94 74.2 32.11 124.85C59.11 221.35 221.61 199.91 248.11 176.35C261.61 164.35 243.61 147.85 214.61 164.35C175.87 186.4-76.39 293.85 25.61 495.85" stroke="#29C2FF" stroke-width="3"/></svg>
-    <img class="ill-2026" src="assets/friday-feeling.webp" width="298" height="298" alt="">
+    <img class="ill-2026" src="assets/friday-feeling.webp?v=7ae9699b" width="298" height="298" alt="">
     <div class="era era-2026 fade" data-at="1">
       <h3 class="t-tile">2026</h3>
       <p class="t-body">В 2026 году ВЭБ.РФ начал трансформацию «Просвещения» — «Просвет» стал общим брендом <br class="d">для компаний, работающих в разных областях образования.</p>
@@ -412,7 +412,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <div class="lantern-glow" aria-hidden="true"></div>
     <div class="fin-in">
       <p class="t-display" id="finTitle">Просвет —<br>пространство<br>знаний и открытий</p>
-      <img class="fin-ill" id="finIll" src="assets/high-fives.webp" width="260" height="260" alt="">
+      <img class="fin-ill" id="finIll" src="assets/high-fives.webp?v=385bd87e" width="260" height="260" alt="">
       <p class="t-body fin-contact">Контакты: <a href="mailto:pressa@prosv.ru">pressa@prosv.ru</a></p>
       <footer class="foot t-nav" id="foot">
         <a href="#history">История</a><a href="#companies">Компании</a>
@@ -444,13 +444,13 @@ document.getElementById('cards').outerHTML=companies.map(([t,d,dark])=>`<a class
 const projects=[
  ['01','Программа<br><span class="keep">«УРАЛХИМиЯ»</span>','Помогаем школьникам подготовиться<br>к экзаменам и выбрать профессию',
   ['Академия «Просвещение» и «99 баллов» вместе с крупным мировым производителем удобрений ГК «Уралхим», готовят школьников к ОГЭ и ЕГЭ по физике, химии, математике и русскому языку.','Школьникам, которые успешно прошли программу, проще поступить в профильные вузы, а в дальнейшем — устроиться на предприятия «Уралхима».'],
-  [['Академия «Просвещение»'],['«99 баллов»'],['Уралхим · партнёр',1]],'assets/moving-day.webp'],
+  [['Академия «Просвещение»'],['«99 баллов»'],['Уралхим · партнёр',1]],'assets/moving-day.webp?v=5d8c0de4'],
  ['02','Агро&shy;технологические классы в школах','Знакомим учеников с современными агротехнологиями',
   ['Разрабатываем учебники и методики, поставляем оборудование для занятий: лабораторные комплекты, гидропонные установки, <br class="d">умные теплицы и робототехнику.','Ученики изучают сельское хозяйство на практике — проводят опыты, знакомятся с оборудованием и получают первые навыки, которые пригодятся в будущей профессии.'],
-  [['Издательство «Просвещение»'],['«Просвещение-Регион»']],'assets/planting.webp'],
+  [['Издательство «Просвещение»'],['«Просвещение-Регион»']],'assets/planting.webp?v=68c2251f'],
  ['03','Пространства для творчества и развития','Помогаем оборудовать учреждения культуры всем необходимым',
   ['Подбираем мебель, книги, настольные игры и оборудование с учётом задач учреждения, а также оказываем методическую поддержку сотрудникам.','В таких пространствах можно читать, конструировать, играть, заниматься творчеством и проводить мероприятия для посетителей разных возрастов.'],
-  [['Издательство «Просвещение»'],['«Просвещение-Союз»'],['«Просвещение-Регион»']],'assets/art-review.webp']];
+  [['Издательство «Просвещение»'],['«Просвещение-Союз»'],['«Просвещение-Регион»']],'assets/art-review.webp?v=3ae26f8f']];
 document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])=>`<article class="pcard">
   <div class="p-text">
     <div class="p-top"><h3 class="t-tile">${t}</h3><p class="t-body">${s}</p></div>
@@ -463,7 +463,7 @@ document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])
 const stats=[['7','компаний','Объединяем в экосистеме «Просвет»'],['96','лет опыта','Создаём учебные материалы и методики'],['25 000 000','детей и взрослых','Используют наши материалы и сервисы'],['44 000','образовательных организаций','Работают с нами в сфере образования'],['3500','экспертов','Создают учебные материалы']];
 document.getElementById('stats').innerHTML=stats.map(([v,l,d])=>`<div class="stat"><div class="head"><span class="t-number">${v}</span><span class="t-h5caps">${l}</span></div><p class="t-body">${d}</p></div>`).join('');
 
-const principles=[['01','Создавая новое, выбираем самое <br class="m">важное','assets/inbox-overflowing.webp'],['02','Качество знаний, которому можно <br class="m">доверять','assets/reading-expert.webp'],['03','Современные инструменты <br>для обучения','assets/data-analyst.webp'],['04','Внимание <br class="d">к интересам <br>и возможностям каждого человека','assets/dreamers.webp']];
+const principles=[['01','Создавая новое, выбираем самое <br class="m">важное','assets/inbox-overflowing.webp?v=8b306e58'],['02','Качество знаний, которому можно <br class="m">доверять','assets/reading-expert.webp?v=7f1bd323'],['03','Современные инструменты <br>для обучения','assets/data-analyst.webp?v=6c49039b'],['04','Внимание <br class="d">к интересам <br>и возможностям каждого человека','assets/dreamers.webp?v=f55d99b3']];
 document.getElementById('principles').innerHTML=principles.map(([n,t,img])=>`<div class="pr"><span class="t-body">${n}</span><div class="pr-b"><img src="${img}" width="280" height="280" alt=""><h3 class="t-h5">${t}</h3></div></div>`).join('');
 
 // Неразрывные пробелы после коротких предлогов/союзов и перед тире
@@ -586,7 +586,6 @@ const finScroll=()=>{
   fin.style.setProperty('--glow',clamp((t-.4)/.6,0,1).toFixed(3));
   let q=cover(cx,cy,R,finTitle,fb); if(t<=0) q=1;
   let qf=cover(cx,cy,R,foot,fb); if(t<=0) qf=1;
-  root.classList.toggle('at-end',t>.5);
   fin.style.setProperty('--fin-ink',mix(q)); fin.style.setProperty('--foot-ink',mix(qf));
   return {active:fb.top<=1&&o.bottom>0, q, t};
 };
@@ -635,6 +634,9 @@ const onScroll=()=>{
   const h=hist.getBoundingClientRect();
   const overHist=h.top<28&&h.bottom>28;
   hdr.classList.toggle('on-light',overHist);
+  // Цвет под страницей (видно в системной панели Android и при оттягивании): как у того, что внизу экрана
+  { const P=spacer.offsetHeight||1, heroWhite=scrollY/P<.5&&!reduce.matches, histBottom=h.top<innerHeight&&h.bottom>=innerHeight-1;
+    root.classList.toggle('bottom-white',heroWhite||histBottom||fs.t>.5); }
   // Смена фонового градиента: только когда белая подложка истории закрывает весь экран
   if(h.top<=0&&h.bottom>=innerHeight) bgAlt.classList.add('on');
   else if(h.top>0) bgAlt.classList.remove('on');
@@ -673,6 +675,7 @@ addEventListener('resize',()=>{layout();lenis&&lenis.resize()});
 mobile.addEventListener('change',layout);
 document.fonts?document.fonts.ready.then(layout):layout();
 layout();
+requestAnimationFrame(onScroll); addEventListener('load',onScroll);
 }
 </script>
 </body>
