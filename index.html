@@ -14,9 +14,10 @@
    Типографика = стили файла: Display/Slogan, Heading/Number, Heading/Tile, Lead/L, Heading/H5, H5 Caps, Body/M, Body/S, UI/Nav, Caption/Tag. */
 :root{color-scheme:light;--strip:116px;--navy:#000126;--blue:#29c2ff;--light:#d7f3ff;--gray:#808792;--paper:#f4f5f6;--white:#fff;--m:40px;--g:16px;--r:24px;--hdr:72px}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:72px;overscroll-behavior-y:none;background:var(--blue)}
+html.at-end,html.at-end body{background:var(--white)}
 html.lenis,html.lenis body{height:auto}html.lenis{scroll-behavior:auto}.lenis.lenis-stopped{overflow:clip}
-body{margin:0;background:var(--blue);color:var(--navy);font:400 20px/28px Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{margin:0;overscroll-behavior-y:none;background:var(--blue);color:var(--navy);font:400 20px/28px Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 h1,h2,h3,p{margin:0}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
@@ -172,12 +173,12 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 /* 7. Финал: фон сворачивается в круг вокруг иллюстрации (макет 101:3986), внизу футер */
 .outro{position:relative;margin-top:160px}
 .outro-spacer{height:90vh;height:90svh}
-.fin{position:sticky;top:0;height:100vh;height:100svh;min-height:560px;overflow:hidden;color:var(--fin-ink,var(--white));--cx:50%;--cy:60%;--r0:3000px;--r1:3150px}
+.fin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;color:var(--fin-ink,var(--white));--cx:50%;--cy:60%;--r0:3000px;--r1:3150px}
 .fin .hero-veil{-webkit-mask-image:radial-gradient(circle at var(--cx) var(--cy),transparent var(--r0),#000 var(--r1));mask-image:radial-gradient(circle at var(--cx) var(--cy),transparent var(--r0),#000 var(--r1))}
 .fin .lantern-glow{opacity:var(--glow,0)}
 .fin-in{position:relative;z-index:1;height:100%;max-width:1440px;margin:0 auto;padding:clamp(56px,7.6vh,60px) var(--m) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
 .fin-in .t-display{max-width:1280px}
-.fin-ill{width:clamp(150px,35vh,280px);margin-top:auto}
+.fin-ill{width:clamp(96px,calc(100dvh - 500px),280px);margin-top:auto}
 .foot{display:flex;justify-content:center;align-items:center;gap:60px;padding:8px var(--m);margin-top:40px;color:var(--foot-ink,var(--white))}
 .foot .logo{width:115px;height:40px;display:block}
 .fin-contact{margin-top:0;color:var(--fin-ink,var(--white))}
@@ -209,7 +210,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .p-vis .num{font-size:28px;line-height:36px}
   .stats{margin-top:48px}
   .principles{margin-top:24px}
-  .fin-ill{width:260px}
+  .fin-ill{width:clamp(96px,calc(100dvh - 460px),260px)}
   .pr img{align-self:flex-start}
   .fin-in{padding-top:calc(var(--hdr) + 48px)}
   :root{--m:12px}
@@ -585,6 +586,7 @@ const finScroll=()=>{
   fin.style.setProperty('--glow',clamp((t-.4)/.6,0,1).toFixed(3));
   let q=cover(cx,cy,R,finTitle,fb); if(t<=0) q=1;
   let qf=cover(cx,cy,R,foot,fb); if(t<=0) qf=1;
+  root.classList.toggle('at-end',t>.5);
   fin.style.setProperty('--fin-ink',mix(q)); fin.style.setProperty('--foot-ink',mix(qf));
   return {active:fb.top<=1&&o.bottom>0, q, t};
 };
