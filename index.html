@@ -137,15 +137,15 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .idea{margin-top:160px;color:var(--white)}
 .idea-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g)}
 .idea-main{grid-column:span 8;display:flex;flex-direction:column;gap:40px;padding-right:32px}
-.idea-side{grid-column:span 4;align-self:end;padding-right:32px}
+.idea-side{grid-column:span 4;align-self:end;padding-right:0}
 .principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);margin-top:40px;color:var(--navy)}
-.pr{height:532px;background:var(--white);border-radius:var(--r);padding:20px 24px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.pr{height:520px;background:var(--white);border-radius:var(--r);padding:20px 24px 40px;display:flex;flex-direction:column;justify-content:flex-start;gap:0}
 .pr-b{display:flex;flex-direction:column;gap:24px}
 .pr img{width:100%;max-width:280px;height:auto;aspect-ratio:1;align-self:center}
-/* Принципы: карточки по одной собираются в стопку по центру, тексты блока остаются на экране */
+/* Принципы: карточки по одной выезжают снизу и встают в ряд 1-2-3-4, тексты блока остаются на экране */
 .idea.stack .idea-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;padding-top:calc(var(--hdr) + 24px);padding-bottom:32px}
-.idea.stack .principles{display:block;position:relative;flex:1;min-height:0;margin-top:40px}
-.idea.stack .pr{position:absolute;left:50%;top:50%;width:328px;will-change:transform;box-shadow:0 24px 60px rgba(0,1,38,.14);opacity:0}
+.idea.stack .principles{transform-origin:top center}
+.idea.stack .pr{will-change:transform;opacity:0}
 
 /* 7. Финал: фон сворачивается в круг вокруг иллюстрации (макет 101:3986), внизу футер */
 .outro{position:relative;margin-top:160px}
@@ -156,9 +156,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .fin-in{position:relative;z-index:1;height:100%;max-width:1440px;margin:0 auto;padding:clamp(56px,7.6vh,60px) var(--m) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
 .fin-in .t-display{max-width:1280px}
 .fin-ill{width:clamp(150px,35vh,280px);margin-top:auto}
-.foot{display:flex;justify-content:center;align-items:center;gap:60px;padding:16px var(--m);margin-top:8px;color:var(--foot-ink,var(--white))}
-.foot .logo{width:154px;height:24px;display:block}
-.fin-contact{margin-top:20px;color:var(--fin-ink,var(--white))}
+.foot{display:flex;justify-content:center;align-items:center;gap:60px;padding:8px var(--m);margin-top:40px;color:var(--foot-ink,var(--white))}
+.foot .logo{width:115px;height:40px;display:block}
+.fin-contact{margin-top:0;color:var(--fin-ink,var(--white))}
 .fin-contact a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .foot a:hover{opacity:.7}
 
@@ -335,9 +335,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="idea-row">
     <div class="idea-main">
       <h2 class="t-tile">Ясный путь развития — <br class="d">главная идея «Просвета»</h2>
-      <p class="t-lead">Мы хотим, чтобы у людей любого возраста было больше возможностей находить свой путь в образовании, развивать способности, осваивать новые направления и заниматься тем, что им действительно интересно.</p>
+      <p class="t-lead">Мы хотим, чтобы человек в любом возрасте мог найти свой путь в образовании: развивать способности, осваивать новое и заниматься тем, что ему действительно интересно.</p>
     </div>
-    <p class="t-body idea-side">Ведь образование помогает не только выбирать профессию и развиваться в работе. Оно даёт больше самостоятельности, уверенности в собственных возможностях и свободы строить планы на будущее.</p>
+    <p class="t-body idea-side">Образование нужно не только для того, чтобы выбрать профессию и расти в работе. Оно делает человека самостоятельнее, даёт уверенность в своих силах и свободу планировать будущее.</p>
   </div>
   <div class="principles" id="principles"></div>
  </div>
@@ -350,11 +350,11 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <div class="lantern-glow" aria-hidden="true"></div>
     <div class="fin-in">
       <p class="t-display" id="finTitle">Просвет —<br>пространство<br>знаний и открытий</p>
-      <p class="t-body fin-contact">Контакты: <a href="mailto:pressa@prosv.ru">pressa@prosv.ru</a></p>
       <img class="fin-ill" id="finIll" src="assets/high-fives.webp" width="260" height="260" alt="">
+      <p class="t-body fin-contact">Контакты: <a href="mailto:pressa@prosv.ru">pressa@prosv.ru</a></p>
       <footer class="foot t-nav" id="foot">
         <a href="#history">История</a><a href="#companies">Компании</a>
-        <a href="#top" class="logo-link" aria-label="Просвет — наверх"><svg class="logo"><use href="#logo"/></svg></a>
+        <a href="#top" class="logo-link" aria-label="Просвет — наверх"><svg class="logo" viewBox="0 0 115 40"><use href="#logo" x=".22" width="114.11" height="17.8"/><use href="#logo-desc" y="22.52" width="87" height="18"/></svg></a>
         <a href="#projects">Проекты</a><a href="#idea">Идея</a>
       </footer>
     </div>
@@ -530,25 +530,23 @@ const finScroll=()=>{
 
 const idea=document.getElementById('idea'),ideaStage=document.getElementById('ideaStage'),prWrap=document.getElementById('principles');
 const prs=[...prWrap.children];
-const PR_POSE=[[-26,10,-7],[22,-4,5],[-12,-10,-3],[4,0,1.5]]; // dx, dy, поворот в стопке
 const ideaLayout=()=>{
   const on=!mobile.matches&&!reduce.matches&&innerHeight>=600;
   idea.classList.toggle('stack',on);
-  if(!on){idea.style.height='';prs.forEach(c=>{c.style.transform='';c.style.opacity=''});return}
-  idea.style.height=(innerHeight*3.4)+'px';
+  if(!on){idea.style.height='';prWrap.style.transform='';prs.forEach(c=>{c.style.transform='';c.style.opacity=''});return}
+  idea.style.height=(innerHeight*3.2)+'px';
 };
 const ideaScroll=()=>{
   if(!idea.classList.contains('stack')) return;
   const r=idea.getBoundingClientRect(), run=Math.max(1,r.height-innerHeight);
-  const P=clamp(-r.top/run,0,1)*4.6-.3;            // 0…4: карточки по очереди
-  const box=prWrap.getBoundingClientRect();
-  const s=Math.min(1,(box.height-24)/532);
-  const fromY=innerHeight-box.top+532*s/2+40;        // старт — из-под нижнего края экрана
+  const P=clamp(-r.top/run,0,1)*4.6-.3;            // 0…4: карточки по очереди, слева направо
+  const st=ideaStage.getBoundingClientRect(), top=prWrap.offsetTop;
+  const s=Math.min(1,(st.height-top-32)/520);       // ряд целиком помещается под текстами
+  prWrap.style.transform=`scale(${s.toFixed(3)})`;
+  const fromY=(innerHeight-(st.top+top))/s+40;      // старт — из-под нижнего края экрана
   prs.forEach((c,i)=>{
     const k=clamp(P-i,0,1), e=1-Math.pow(1-k,3);
-    const [dx,dy,rot]=PR_POSE[i];
-    const y=dy+(fromY-dy)*(1-e), rr=rot+(1-e)*(i%2?14:-14), x=dx*(.4+.6*e);
-    c.style.transform=`translate(-50%,-50%) translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${rr.toFixed(2)}deg) scale(${s.toFixed(3)})`;
+    c.style.transform=`translateY(${((1-e)*fromY).toFixed(1)}px) rotate(${((1-e)*(i%2?8:-8)).toFixed(2)}deg)`;
     c.style.opacity=k>0?1:0;
   });
 };
