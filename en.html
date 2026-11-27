@@ -4,7 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prosvet — education ecosystem</title>
-<link rel="icon" href="data:,">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Prosvet">
+<meta property="og:title" content="Prosvet — a space for knowledge and discovery">
+<meta property="og:description" content="We bring knowledge and technology together to help everyone learn, grow and discover. Since 1930.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg?v=4435fd9d" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=81c5416e" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=b9595fe6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
@@ -119,12 +130,15 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 /* 3. Компании — горизонтальный скролл с закреплением */
 .cmp{position:relative}
 .cmp-pin{position:sticky;top:0;height:100vh;min-height:720px;display:flex;align-items:center;overflow:hidden}
-.cmp-track{display:flex;gap:var(--g);padding:0 var(--m);will-change:transform}
+.cmp-track{display:flex;gap:var(--g);padding:0 var(--m)}
 .cmp-title{flex:0 0 575px;height:560px;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;padding:32px 32px 32px 0;color:var(--white)}
 .card{flex:0 0 385px;height:560px;border-radius:var(--r);background:var(--white);padding:32px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .card .top{align-self:stretch;display:flex;flex-direction:column;gap:20px}
 .card .go,.slot .go{width:48px;height:48px;border:1.5px solid currentColor;border-radius:16px;display:grid;place-items:center;font-size:20px;line-height:1;transition:background .2s,color .2s}
 .card:hover .go{background:var(--navy);color:var(--white)}
+.card{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.card:hover,.card:focus-visible{transform:scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover,.card:focus-visible{transform:none}}
 .card.dark{background:var(--navy);color:var(--white)}
 .card.dark .t-body-s{color:var(--light)}
 .card.dark .go{border-color:var(--blue);color:var(--blue)}
@@ -356,7 +370,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <p class="t-h5">Seven companies creating educational products for children and adults</p>
   </div>
   <div class="hist">
-    <h2 class="t-tile">A rich history. A new chapter.</h2>
+    <h2 class="t-tile">A rich history. <br>A new chapter.</h2>
     <p class="t-body sum">Our new ecosystem combines Prosveshchenie's expertise in learning materials and teaching methods with the technologies and solutions developed by other education companies.</p>
     <img class="ill-1930" src="assets/library.webp?v=61b0e81e" width="297" height="297" alt="">
     <svg class="curve" viewBox="0 0 593 459" width="593" height="459" fill="none" aria-hidden="true"><path id="curvePath" d="M1.14 170.15C189.14 -52.34 389.64 -8.84 474.14 44.65C553.94 95.17 557.64 192.15 457.14 205.65C371.42 217.16 394.64 139.65 457.14 158.15C599.38 200.25 599.31 360.15 584.14 458.65" stroke="#29C2FF" stroke-width="3"/></svg>
@@ -382,11 +396,11 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="cmp-pin">
     <div class="cmp-track" id="track">
       <div class="cmp-title">
-        <h2 class="t-tile">Seven companies. <br class="d">One shared vision.</h2>
+        <h2 class="t-tile">Seven companies. One shared vision.</h2>
         <p class="t-body">We open up more opportunities to learn and grow, from early discoveries at school to training for a new career.</p>
       </div>
       <div id="cards" style="display:contents"></div>
-      <div class="slot"><p class="slot-t">Space<br>for a new company</p><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor"><rect x="6.75" width="1.5" height="15"/><rect y="6.75" width="15" height="1.5"/></svg></span></div>
+      <div class="slot"><p class="slot-t">Space for <br class="d">a new company</p><span class="go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor"><rect x="6.75" width="1.5" height="15"/><rect y="6.75" width="15" height="1.5"/></svg></span></div>
     </div>
   </div>
 </section>
@@ -403,7 +417,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <!-- 6. Идея бренда -->
 <section class="idea" id="idea">
  <div class="idea-stage wrap" id="ideaStage">
-  <h2 class="t-tile idea-h">A clear path to growth: <br class="d">the idea at the heart of Prosvet</h2>
+  <h2 class="t-tile idea-h">A clear path <br class="m">to growth: <br class="d">the idea <br class="m">at the heart of Prosvet</h2>
   <div class="idea-row">
     <p class="t-body idea-c idea-c1">We want people of all ages to have more opportunities to find their own path in education, develop their abilities, explore new fields and pursue what truly interests them.</p>
     <p class="t-body idea-c">Education helps us do more than choose a career or progress at work. It gives us greater independence, confidence in our own abilities and the freedom to make plans for the future.</p>
@@ -418,7 +432,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="lantern-glow" aria-hidden="true"></div>
     <div class="fin-in">
-      <p class="t-display" id="finTitle">Prosvet is a space <br class="d">for knowledge <br class="d">and discovery</p>
+      <p class="t-display" id="finTitle">Prosvet is a space <br class="d">for knowledge and discovery</p>
       <img class="fin-ill" id="finIll" src="assets/high-fives.webp?v=385bd87e" width="260" height="260" alt="">
       <p class="t-body fin-contact">Contacts: <a href="mailto:pressa@prosv.ru">pressa@prosv.ru</a></p>
       <footer class="foot t-nav" id="foot">
@@ -436,15 +450,16 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 //# sourceMappingURL=lenis.min.js.map</script>
 <script>
 {
+const cmpUrls=['https://prosv.ru/','https://corp.prosv.ru/about/prosveshchenie-soyuz','https://academy.prosv.ru/','https://corp.prosv.ru/about/prosveshchenie-region','https://eduson.academy/','https://karpov.courses/','https://corp.prosv.ru/partners/99ballov'];
 const companies=[
  ['Prosveshchenie Publishing House','We develop textbooks, educational programmes, teaching resources and digital learning products for schools.',0],
  ['Prosveshchenie-<br class="d">Soyuz','We publish books, educational board games and learning resources for children and families.',0],
  ['Prosveshchenie Academy','We support educators in developing their professional skills, offer guidance on teaching practice and design professional development programmes.',0],
- ['Prosveshchenie-Region','We supply educational institutions with teaching and laboratory equipment, visual learning aids and integrated educational solutions.',0],
+ ['Prosveshchenie-<br class="d">Region','We supply educational institutions with teaching and laboratory equipment, visual learning aids and integrated educational solutions.',0],
  ['Eduson Academy','We provide professional training for adults and staff development programmes for businesses.',1],
  ['Karpov Courses','We offer online courses in data analytics and other areas of technology.',1],
  ['99 Ballov',"We help students prepare for Russia's national school exams (OGE and EGE) with online courses.",1]];
-document.getElementById('cards').outerHTML=companies.map(([t,d,dark])=>`<a class="card${dark?' dark':''}" href="#" aria-label="${t.replace(/<[^>]+>/g,"")}">
+document.getElementById('cards').outerHTML=companies.map(([t,d,dark],i)=>`<a class="card${dark?' dark':''}" href="${cmpUrls[i]}" target="_blank" rel="noopener" aria-label="${t.replace(/<[^>]+>/g,"")}">
   <div class="top"><h3 class="t-h5">${t}</h3><p class="t-body-s">${d}</p></div>
   <span class="go" aria-hidden="true">↗</span></a>`).join('');
 
@@ -676,7 +691,6 @@ const onScroll=()=>{
   });
 };
 document.getElementById('toCompanies').addEventListener('click',()=>lenis?lenis.scrollTo(cmp,{duration:1.2,easing:ease}):cmp.scrollIntoView({behavior:reduce.matches?'auto':'smooth'}));
-for(const a of document.querySelectorAll('.card')) a.addEventListener('click',e=>e.preventDefault());
 addEventListener('scroll',onScroll,{passive:true});
 addEventListener('resize',()=>{layout();lenis&&lenis.resize()});
 mobile.addEventListener('change',layout);
