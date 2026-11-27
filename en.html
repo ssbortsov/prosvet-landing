@@ -157,8 +157,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .p-top{gap:20px}.p-bot{gap:24px}
 .p-desc{display:flex;flex-direction:column;gap:12px;max-width:680px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 12px;border-radius:100px;background:var(--light)}
-.chip.partner{background:none;border:1px dashed var(--navy);opacity:.6}
+.chip{padding:8px 12px;border-radius:100px;background:var(--light);white-space:nowrap}
+.chip.partner{background:none;border:1px dashed var(--navy);padding:7px 11px;opacity:.6}
 .p-vis{flex:0 0 280px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .p-vis .num{color:var(--blue)}
 .p-vis img{width:280px;height:280px;object-fit:contain}
@@ -253,6 +253,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .card,.slot{flex-basis:300px;height:480px;scroll-snap-align:start}
   .slot .slot-t{font-size:32px;line-height:36px}
   .pcard{top:72px;flex-direction:column;padding:24px 20px;gap:24px;min-height:0}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:0 20px;scroll-padding-inline:20px;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
   .p-top{gap:12px}.p-bot{gap:20px}
   .p-text{gap:24px;justify-content:flex-start}
   .pcard .t-body-s{font-size:14px;line-height:20px}
@@ -351,7 +354,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="lantern-glow" aria-hidden="true"></div>
   <div class="hero-in">
     <h1 class="t-display">Curiosity <br class="d">knows no age</h1>
-    <p class="t-body lead">We bring knowledge and technology together to help everyone learn, grow and discover. Since 1930.</p>
+    <p class="t-body lead">We bring knowledge and technology together to help everyone learn, grow and discover. Since 1930</p>
     <img class="hero-ill" id="heroIll" src="assets/looking-around.webp?v=c92ee709" width="280" height="280" alt="">
   </div>
   <button class="scroll-cue" type="button" id="scrollCue" aria-label="Scroll down">
@@ -370,21 +373,21 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <p class="t-h5">Seven companies creating educational products for children and adults</p>
   </div>
   <div class="hist">
-    <h2 class="t-tile">A rich history. <br>A new chapter.</h2>
-    <p class="t-body sum">Our new ecosystem combines Prosveshchenie's expertise in learning materials and teaching methods with the technologies and solutions developed by other education companies.</p>
+    <h2 class="t-tile">A rich history. <br>A new chapter</h2>
+    <p class="t-body sum">Our new ecosystem combines Prosveshcheniye's expertise in learning materials and teaching methods with the technologies and solutions developed by other education companies.</p>
     <img class="ill-1930" src="assets/library.webp?v=61b0e81e" width="297" height="297" alt="">
     <svg class="curve" viewBox="0 0 593 459" width="593" height="459" fill="none" aria-hidden="true"><path id="curvePath" d="M1.14 170.15C189.14 -52.34 389.64 -8.84 474.14 44.65C553.94 95.17 557.64 192.15 457.14 205.65C371.42 217.16 394.64 139.65 457.14 158.15C599.38 200.25 599.31 360.15 584.14 458.65" stroke="#29C2FF" stroke-width="3"/></svg>
     <span class="dot dot-1 fade"></span><span class="dot dot-2 fade" data-at="1"></span>
     <div class="era era-1930 fade">
       <h3 class="t-tile">1930</h3>
-      <p class="t-body">Our story began with Prosveshchenie, a publishing house that develops textbooks, educational programmes and teaching resources.</p>
-      <p class="t-body">For nearly a century, millions of schoolchildren across Russia have been learning from Prosveshchenie's textbooks.</p>
+      <p class="t-body">Our story began with Prosveshcheniye, a publishing house that develops textbooks, educational programmes and teaching resources.</p>
+      <p class="t-body">For nearly a century, millions of schoolchildren across Russia have been learning from Prosveshcheniye's textbooks.</p>
     </div>
     <svg class="curve-m" viewBox="0 0 255 497" width="255" height="497" fill="none" aria-hidden="true"><path id="curvePathM" d="M50.61 .35C68.61 74.35 17.94 74.2 32.11 124.85C59.11 221.35 221.61 199.91 248.11 176.35C261.61 164.35 243.61 147.85 214.61 164.35C175.87 186.4-76.39 293.85 25.61 495.85" stroke="#29C2FF" stroke-width="3"/></svg>
     <img class="ill-2026" src="assets/friday-feeling.webp?v=7ae9699b" width="298" height="298" alt="">
     <div class="era era-2026 fade" data-at="1">
       <h3 class="t-tile">2026</h3>
-      <p class="t-body">In 2026, Russia’s state development corporation VEB.RF began transforming Prosveshchenie. Prosvet became the umbrella brand for a group of companies working across the education sector.</p>
+      <p class="t-body">In 2026, Russia’s state development corporation VEB.RF began transforming Prosveshcheniye. Prosvet became the umbrella brand for a group of companies working across the education sector.</p>
       <p class="t-body">Together, we develop digital services, educational games and new ways to learn, while expanding our work in supplementary and professional education.</p>
     </div>
   </div>
@@ -396,7 +399,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   <div class="cmp-pin">
     <div class="cmp-track" id="track">
       <div class="cmp-title">
-        <h2 class="t-tile">Seven companies. One shared vision.</h2>
+        <h2 class="t-tile">Seven companies. One shared vision</h2>
         <p class="t-body">We open up more opportunities to learn and grow, from early discoveries at school to training for a new career.</p>
       </div>
       <div id="cards" style="display:contents"></div>
@@ -452,10 +455,10 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 {
 const cmpUrls=['https://prosv.ru/','https://corp.prosv.ru/about/prosveshchenie-soyuz','https://academy.prosv.ru/','https://corp.prosv.ru/about/prosveshchenie-region','https://eduson.academy/','https://karpov.courses/','https://corp.prosv.ru/partners/99ballov'];
 const companies=[
- ['Prosveshchenie Publishing House','We develop textbooks, educational programmes, teaching resources and digital learning products for schools.',0],
- ['Prosveshchenie-<br class="d">Soyuz','We publish books, educational board games and learning resources for children and families.',0],
- ['Prosveshchenie Academy','We support educators in developing their professional skills, offer guidance on teaching practice and design professional development programmes.',0],
- ['Prosveshchenie-<br class="d">Region','We supply educational institutions with teaching and laboratory equipment, visual learning aids and integrated educational solutions.',0],
+ ['Prosveshcheniye Publishing House','We develop textbooks, educational programmes, teaching resources and digital learning products for schools.',0],
+ ['Prosveshcheniye-<br class="d">Soyuz','We publish books, educational board games and learning resources for children and families.',0],
+ ['Prosveshcheniye Academy','We support educators in developing their professional skills, offer guidance on teaching practice and design professional development programmes.',0],
+ ['Prosveshcheniye-<br class="d">Region','We supply educational institutions with teaching and laboratory equipment, visual learning aids and integrated educational solutions.',0],
  ['Eduson Academy','We provide professional training for adults and staff development programmes for businesses.',1],
  ['Karpov Courses','We offer online courses in data analytics and other areas of technology.',1],
  ['99 Ballov',"We help students prepare for Russia's national school exams (OGE and EGE) with online courses.",1]];
@@ -465,14 +468,14 @@ document.getElementById('cards').outerHTML=companies.map(([t,d,dark],i)=>`<a cla
 
 const projects=[
  ['01','The <span class="keep">URALKHIMiYA</span> programme','Helping students prepare for exams and choose a career path',
-  ["Prosveshchenie Academy and 99 Ballov have teamed up with Uralchem Group, a major global producer of mineral fertilisers, to help students prepare for Russia's national school exams (OGE and EGE) in physics, chemistry, mathematics and Russian.",'Students who successfully complete the programme are better placed to gain admission to universities offering relevant courses and go on to find employment with Uralchem.'],
-  [['Prosveshchenie Academy'],['99 Ballov'],['Uralchem · partner',1]],'assets/moving-day.webp?v=5d8c0de4'],
+  ["Prosveshcheniye Academy and 99 Ballov have teamed up with Uralchem Group, a major global producer of mineral fertilisers, to help students prepare for Russia's national school exams (OGE and EGE) in physics, chemistry, mathematics and Russian.",'Students who successfully complete the programme are better placed to gain admission to universities offering relevant courses and go on to find employment with Uralchem.'],
+  [['Prosveshcheniye Academy'],['99 Ballov'],['Uralchem · partner',1]],'assets/moving-day.webp?v=5d8c0de4'],
  ['02','Agricultural technology classes in schools','Introducing students to modern agricultural technologies',
-  ['We develop textbooks and teaching methods and supply equipment for practical lessons, from laboratory kits and hydroponic systems to smart greenhouses and robotics equipment.','Students learn about agriculture first-hand by carrying out experiments, familiarising themselves with the equipment and developing practical skills for their future careers.'],
-  [['Prosveshchenie Publishing House'],['Prosveshchenie-Region']],'assets/planting.webp?v=68c2251f'],
+  ['We develop textbooks and teaching methods and supply equipment for practical lessons, from laboratory kits and hydroponic systems to smart greenhouses and robotics equipment.','Students learn about agriculture first-hand by carrying out experiments, becoming familiar with the equipment and developing practical skills for their future careers.'],
+  [['Prosveshcheniye Publishing House'],['Prosveshcheniye-Region']],'assets/planting.webp?v=68c2251f'],
  ['03','Spaces for creativity and personal development','Helping cultural institutions create well-equipped spaces',
   ["We select furniture, books, board games and equipment to suit each institution's needs. We also provide practical guidance and support for their staff.",'Visitors of all ages can read, build, play and get creative in these spaces, which can also be used to host events.'],
-  [['Prosveshchenie Publishing House'],['Prosveshchenie-Soyuz'],['Prosveshchenie-Region']],'assets/art-review.webp?v=3ae26f8f']];
+  [['Prosveshcheniye Publishing House'],['Prosveshcheniye-Soyuz'],['Prosveshcheniye-Region']],'assets/art-review.webp?v=3ae26f8f']];
 document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])=>`<article class="pcard">
   <div class="p-text">
     <div class="p-top"><h3 class="t-tile">${t}</h3><p class="t-body">${s}</p></div>
@@ -482,7 +485,7 @@ document.getElementById('projects').innerHTML=projects.map(([n,t,s,ps,tags,img])
   <div class="p-vis"><span class="t-tile num">${n}</span><img src="${img}" width="280" height="280" alt=""></div>
 </article>`).join('');
 
-const stats=[['7','companies','United in the Prosvet ecosystem'],['96','years','Of experience in developing learning materials and teaching methods'],['25 million','children and adults','Using our materials and services'],['44,000','educational institutions','Working with us'],['3,500','experts','Developing learning materials']];
+const stats=[['7','companies','united in the Prosvet ecosystem'],['96','years','of experience in developing learning materials and teaching methods'],['25 million','children and adults','using our materials and services'],['44,000','educational institutions','working with us'],['3,500','experts','developing learning materials']];
 document.getElementById('stats').innerHTML=stats.map(([v,l,d])=>`<div class="stat"><div class="head"><span class="t-number">${v}</span><span class="t-h5caps">${l}</span></div><p class="t-body">${d}</p></div>`).join('');
 
 const principles=[['01','When developing something new, we focus on what matters most','assets/inbox-overflowing.webp?v=8b306e58'],['02','High-quality educational content you can trust','assets/reading-expert.webp?v=7f1bd323'],['03','Modern tools for learning','assets/data-analyst.webp?v=6c49039b'],['04',"Consideration of each person's interests and abilities",'assets/dreamers.webp?v=f55d99b3']];

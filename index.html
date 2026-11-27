@@ -157,8 +157,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .p-top{gap:20px}.p-bot{gap:24px}
 .p-desc{display:flex;flex-direction:column;gap:12px;max-width:680px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 12px;border-radius:100px;background:var(--light)}
-.chip.partner{background:none;border:1px dashed var(--navy);opacity:.6}
+.chip{padding:8px 12px;border-radius:100px;background:var(--light);white-space:nowrap}
+.chip.partner{background:none;border:1px dashed var(--navy);padding:7px 11px;opacity:.6}
 .p-vis{flex:0 0 280px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .p-vis .num{color:var(--blue)}
 .p-vis img{width:280px;height:280px;object-fit:contain}
@@ -253,6 +253,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   .card,.slot{flex-basis:300px;height:480px;scroll-snap-align:start}
   .slot .slot-t{font-size:32px;line-height:36px}
   .pcard{top:72px;flex-direction:column;padding:24px 20px;gap:24px;min-height:0}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:0 20px;scroll-padding-inline:20px;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
   .p-top{gap:12px}.p-bot{gap:20px}
   .p-text{gap:24px;justify-content:flex-start}
   .pcard .t-body-s{font-size:14px;line-height:20px}
